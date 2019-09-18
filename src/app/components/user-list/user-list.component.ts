@@ -12,7 +12,7 @@ import { Iuser } from 'src/app/models/user.model';
 })
 export class UserListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'firstname', 'lastname', 'email', 'edit'];
-  public usersData;
+  public usersData: MatTableDataSource<Iuser>;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -24,6 +24,9 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.usersData = new MatTableDataSource<Iuser>(this.dataSvc.getUsersData());
+    this.usersData.filterPredicate = (data, filter: string): boolean => {
+      return data.lastname.toLowerCase().includes(filter);
+    };
     this.usersData.sort = this.sort;
   }
 }

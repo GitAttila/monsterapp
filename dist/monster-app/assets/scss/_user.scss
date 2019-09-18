@@ -1,0 +1,14 @@
+.user-component {
+  table {
+    width: 95%;
+    margin: 1rem auto;
+  }
+  .btn-adduser {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+  }
+  &__align-right {
+    text-align: right;
+  }
+}

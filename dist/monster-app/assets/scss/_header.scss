@@ -1,0 +1,17 @@
+.app-header{
+  overflow: scroll;
+  &__link {
+    cursor: pointer;
+    transition: 0.3s opacity ease-in-out;
+    &:hover {
+      opacity: 0.6;
+    }
+    &:active, &:focus{
+      outline: 0;
+    }
+  }
+  &__subheader {
+    background-color: mat-color($monster-app-primary, 300 );
+    color: mat-contrast($monster-app-primary, 300);
+  }
+}

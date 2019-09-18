@@ -1,0 +1,53 @@
+<div class="user-component">
+    <mat-form-field class = "formfield-wrapper formfield-wrapper__filter">
+      <input
+        matInput (keyup)="applyFilter($event.target.value)"
+        placeholder="filter"
+        color = "accent">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="usersData" matSort class="mat-elevation-z2">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> first name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> last name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" class="user-component__align-right">
+          <button
+            mat-icon-button
+            [routerLink]="['/edit', element.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <button
+      mat-fab
+      class="btn-adduser"
+      color="accent"
+      routerLink="/newuser">
+      <mat-icon>add</mat-icon>
+    </button>
+
+</div>

@@ -1,0 +1,81 @@
+<div class="container user-component">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <div *ngIf="!isLoading">
+    <mat-card
+      class="app-card">
+        <form [formGroup]="userForm" (submit)="onSaveUser()">
+
+          <mat-card-header>
+            <div mat-card-avatar class="app-card__header-image">
+              <span
+                [innerHtml]= "generateAvatar('initials')"
+                class="app-card__avatar-text"></span>
+            </div>
+            <mat-card-title>
+              <span [innerHtml]= "generateAvatar()"></span>
+            </mat-card-title>
+            <mat-card-subtitle [innerHtml]= "userForm.get('nickname').value"></mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <mat-form-field class="formfield-wrapper__50">
+                <input
+                  matInput
+                  type = "text"
+                  formControlName = "firstname"
+                  placeholder = "first name*">
+                  <mat-error *ngIf="userForm.get('firstname').getError('required') ">Please enter user's first name.</mat-error>
+                  <mat-error *ngIf="userForm.get('firstname').getError('minlength') ">This field requires minimum of 3 characters.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formfield-wrapper__50 formfield-wrapper__lastinrow">
+                <input
+                matInput
+                type = "text"
+                formControlName = "lastname"
+                placeholder = "last name*">
+                <mat-error *ngIf="userForm.get('lastname').invalid">Please enter user's last name.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formfield-wrapper">
+                <input
+                matInput
+                type = "text"
+                formControlName = "nickname"
+                placeholder = "nick name">
+            </mat-form-field>
+            <mat-form-field class="formfield-wrapper">
+                <textarea
+                matInput
+                rows="4"
+                formControlName = "description"
+                placeholder = "description"></textarea>
+            </mat-form-field>
+            <mat-form-field class="formfield-wrapper__50">
+                <input
+                matInput
+                type = "email"
+                formControlName = "email"
+                placeholder = "email*">
+                <mat-error *ngIf="userForm.get('email').getError('required') ">This field is required.</mat-error>
+                <mat-error *ngIf="userForm.get('email').getError('email') ">Please enter a valid email.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formfield-wrapper__50 formfield-wrapper__lastinrow">
+                <input
+                matInput
+                type = "text"
+                formControlName = "phone"
+                placeholder = "phone">
+            </mat-form-field>
+            <mat-card-subtitle class="app-card__note">Fields marked with * are required.</mat-card-subtitle>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button
+              mat-raised-button
+              color = "accent">SAVE</button>
+          </mat-card-actions>
+
+        </form>
+      </mat-card>
+    </div>
+</div>
+

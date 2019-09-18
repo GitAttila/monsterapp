@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" class="app-header mat-elevation-z6">
+  <div class="container">
+      <span class="app-header__link mat-h1" routerLink = "/">{{appName}}</span>
+  </div>
+</mat-toolbar>
+<mat-toolbar class="app-header__subheader">
+  <div class="container">
+      <button
+        *ngIf = "returnToMainPage === true"
+        mat-icon-button
+        routerLink="/">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span class="mat-h3">{{appSectionName}}</span>
+  </div>
+</mat-toolbar>

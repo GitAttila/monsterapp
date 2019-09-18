@@ -16,4 +16,7 @@
   @include atLarge {
     max-width: 1140px;
   }
+  &__w-auto {
+    width: auto;
+  }
 }

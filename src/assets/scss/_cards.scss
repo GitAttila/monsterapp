@@ -22,5 +22,8 @@
     margin: 0;
     text-align: right;
   }
+  &.mat-card {
+    background-color: mat-color($monster-app-background, background, 0.85);
+  }
 }
 

@@ -1,4 +1,7 @@
 .user-component {
+  .mat-table {
+    background-color: mat-color($monster-app-background, background, 0.5);
+  }
   table {
     width: 95%;
     margin: 1rem auto;

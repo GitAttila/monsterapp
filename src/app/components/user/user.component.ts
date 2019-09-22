@@ -23,7 +23,7 @@ export class UserComponent implements OnInit, OnDestroy {
     public router: Router,
     public route: ActivatedRoute) {}
 
-  generateAvatar(type: string) {
+  generateAvatar(type?: string) {
     type = type || 'fullname';
     let res = '';
     let space = ' ';

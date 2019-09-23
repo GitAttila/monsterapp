@@ -10,12 +10,10 @@ export class AuthService {
     return new Promise(
       (resolve, reject) => {
         const numOfUsers = this.dataSvc.getUsersData().length;
-        if (params.userId !== undefined) {
-          if ((params.userId) - 1 >= 0 && (params.userId - 1) <= numOfUsers) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
+        if ((params.userId) - 1 >= 0 && (params.userId - 1) < numOfUsers) {
+          resolve(true);
+        } else {
+          resolve(false);
         }
       });
   }
